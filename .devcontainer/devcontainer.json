@@ -1,0 +1,57 @@
+{
+    "name": "terraform",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "terraform",
+    "workspaceFolder": "/terraform-test",
+    "shutdownAction": "stopCompose",
+    "remoteUser": "vscode",
+    "postCreateCommand": "wget --quiet -O - https://raw.githubusercontent.com/terraform-linters/tflint/v0.51.1/install_linux.sh | bash",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "files.eol": "\n",
+                "files.insertFinalNewline": true,
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "editor.rulers": [80, 120],
+                "[json]": {
+                    "editor.insertSpaces": true,
+                    "editor.tabSize": 2,
+                    "editor.autoIndent": "advanced",
+                    "diffEditor.ignoreTrimWhitespace": false
+                },
+                "[yaml]": {
+                    "editor.insertSpaces": true,
+                    "editor.tabSize": 2,
+                    "editor.autoIndent": "advanced",
+                    "diffEditor.ignoreTrimWhitespace": false
+                },
+                "[terraform]": {
+                    "editor.defaultFormatter": "hashicorp.terraform",
+                    "editor.formatOnSave": true,
+                    "editor.formatOnSaveMode": "file",
+                    "editor.insertSpaces": true,
+                    "editor.tabSize": 2,
+                    "editor.autoIndent": "advanced",
+                    "diffEditor.ignoreTrimWhitespace": false
+                },
+                "terraform-ls.experimentalFeatures": {
+                    "validateOnSave": true
+                },
+                "files.associations": {
+                    "*.tf": "terraform",
+                    "*.tfvars": "terraform",
+                    "*.hcl": "terraform"
+                }
+            },
+            "extensions": [
+                "redhat.vscode-yaml",
+                "eamodio.gitlens",
+                "hashicorp.terraform",
+                "shardulm94.trailing-spaces",
+                "wayou.vscode-todo-highlight",
+                "oderwat.indent-rainbow",
+                "streetsidesoftware.code-spell-checker"
+            ]
+        }
+    }
+}
