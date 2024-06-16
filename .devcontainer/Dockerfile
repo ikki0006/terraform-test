@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     gnupg \
     openssh-client \
+    pre-commit \
     software-properties-common \
     && apt-get clean
 

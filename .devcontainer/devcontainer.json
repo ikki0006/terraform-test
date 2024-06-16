@@ -5,7 +5,7 @@
     "workspaceFolder": "/terraform-test",
     "shutdownAction": "stopCompose",
     "remoteUser": "vscode",
-    "postCreateCommand": "wget --quiet -O - https://raw.githubusercontent.com/terraform-linters/tflint/v0.51.1/install_linux.sh | bash",
+    "postCreateCommand": "bash ./install.sh",
     "customizations": {
         "vscode": {
             "settings": {
