@@ -20,3 +20,9 @@ module "ecs" {
   system = var.system
   env    = var.env
 }
+
+module "sqs" {
+  source = "../../modules/sqs"
+  system = var.system
+  env    = var.env
+}
