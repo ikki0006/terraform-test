@@ -13,3 +13,4 @@ services:
       - .docker_env
     container_name: terraform
     tty: true
+    platform: linux/x86_64

@@ -1,6 +1,7 @@
 {
     "ignoreWords": [
         "tfstate",
-        "tfbackend"
+        "tfbackend",
+        "ikki"
     ]
   }

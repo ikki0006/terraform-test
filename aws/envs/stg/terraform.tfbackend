@@ -1,3 +1,3 @@
-bucket = ""
+bucket = "ikki0006-test-terraform"
 region = "ap-northeast-1"
 key = "stg/aws.terraform.tfstate"
