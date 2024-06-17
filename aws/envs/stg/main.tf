@@ -19,5 +19,4 @@ module "ecs" {
   source = "../../modules/ecs"
   system = var.system
   env    = var.env
-
 }

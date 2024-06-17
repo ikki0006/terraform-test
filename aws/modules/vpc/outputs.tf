@@ -1,5 +1,5 @@
 
-output "name" {
-  value       = "${var.system}-${var.env}-sample-01"
-  description = "sample"
+output "vpc_01_subnets" {
+  value       = module.vpc_01.outpost_subnets
+  description = "VPC subnets"
 }
