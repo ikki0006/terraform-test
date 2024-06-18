@@ -68,6 +68,31 @@ resource "aws_iam_role_policy" "role_policy_pipe_sample_01" {
           var.source_sqs,
         ]
       },
+      {
+        Effect = "Allow"
+        Action = [
+          "ecs:RunTask"
+        ],
+        Resource = [
+          "${var.task_def}:*",
+          var.task_def
+        ],
+        Condition = {
+          ArnLike = {
+            "ecs:cluster" : var.target_ecs
+          },
+        }
+      },
+      {
+        Effect   = "Allow",
+        Action   = "iam:PassRole"
+        Resource = "*"
+        Condition = {
+          StringLike = {
+            "iam:PassedToService" : "ecs-tasks.amazonaws.com"
+          }
+        }
+      }
     ]
   })
 }
