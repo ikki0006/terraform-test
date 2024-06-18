@@ -8,15 +8,35 @@ resource "aws_pipes_pipe" "pipe_sample_01" {
   target   = var.target_ecs
 
   target_parameters {
+
+    input_template = <<EOF
+        "messageId": <$.messageId>,
+        "body": <$.body>
+    EOF
     ecs_task_parameters {
+      launch_type             = "FARGATE"
       enable_ecs_managed_tags = true
       task_count              = 1
       task_definition_arn     = var.task_def
       network_configuration {
         aws_vpc_configuration {
-          subnets         = var.subnets
-          security_groups = []
+          subnets          = var.subnets
+          security_groups  = []
+          assign_public_ip = "ENABLED"
         }
+      }
+      overrides {
+        container_override {
+          environment {
+            name  = "MESSAGE_ID"
+            value = "$.messageId"
+          }
+          environment {
+            name  = "MESSAGE_BODY"
+            value = "$.body"
+          }
+        }
+
       }
     }
   }
