@@ -48,6 +48,14 @@ module "ecs_api_01" {
       value = "enabled"
     }
   ]
+  fargate_capacity_providers = {
+    FARGATE = {
+      default_capacity_provider_strategy = {
+        weight = 100
+      }
+    }
+  }
+
   create_task_exec_iam_role          = true
   task_exec_iam_role_name            = "${var.system}-${var.env}-ecs-api-01-task-exec-role-01"
   task_exec_iam_role_use_name_prefix = false
@@ -67,6 +75,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition_api_01" {
   track_latest = false
   container_definitions = jsonencode([
     {
+
       name      = "api"
       image     = "${module.ecr_api_01.repository_url}:latest"
       cpu       = 256

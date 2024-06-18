@@ -1,5 +1,5 @@
 
-output "name" {
-  value       = "${var.system}-${var.env}-sample-01"
-  description = "sample"
+output "sqs_queue_sample_01_arn" {
+  value       = aws_sqs_queue.sqs_queue_sample_01.arn
+  description = "sqs_queue_sample_01"
 }
